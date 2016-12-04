@@ -1,6 +1,7 @@
 import unittest
 import bowling
 
+
 class BowlingGameTest(unittest.TestCase):
     def setUp(self):
         self.bowling_game = bowling.Game()
@@ -28,9 +29,11 @@ class BowlingGameTest(unittest.TestCase):
         self.roll_many(12, 10)
         self.assertEquals(300, self.bowling_game.show_score())
 
-    def roll_spare(self):
+    def test_roll_spare(self):
         self.bowling_game.roll(5)
         self.bowling_game.roll(5)
+        self.assertEqual(10, self.bowling_game.show_score())
 
-    def roll_strike(self):
+    def test_roll_strike(self):
         self.bowling_game.roll(10)
+        self.assertEqual(10, self.bowling_game.show_score())
